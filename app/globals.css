@@ -1,0 +1,196 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-playfair: "Playfair Display", Georgia, serif;
+  --font-inter: "Inter", Helvetica, Arial, sans-serif;
+  --gold-primary: #d4af37;
+  --gold-bright: #f5d061;
+  --gold-dark: #b38728;
+  --obsidian-dark: #09090b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+bg-w
+body {
+  background-color: #0b0b0e;
+  color: #f4f1ea;
+  font-family: var(--font-inter);
+  overflow-x: hidden;
+}
+
+/* Luxury Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #d4af37 0%, #8c661d 100%);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f5d061;
+}
+
+@layer components {
+  /* VIP Buttons */
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center gap-2 overflow-hidden bg-gradient-to-r from-gold-600 via-gold to-gold-400 text-obsidian-950 px-6 py-3 rounded-md font-semibold tracking-wide transition-all duration-300 hover:shadow-gold-glow hover:brightness-110 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-none;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 bg-obsidian-800/90 text-gold-300 border border-gold/40 px-6 py-3 rounded-md font-medium tracking-wide transition-all duration-300 hover:bg-gold/15 hover:border-gold hover:text-gold-200 active:scale-[0.98] disabled:opacity-50;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 border border-gold/60 text-gold px-6 py-3 rounded-md font-medium tracking-wide transition-all duration-300 hover:bg-gold hover:text-obsidian-950 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 text-neutral-300 px-4 py-2 rounded-md font-medium transition-all duration-200 hover:text-gold hover:bg-white/5;
+  }
+
+  /* VIP Inputs */
+  .input-field {
+    @apply w-full border border-neutral-700/80 bg-obsidian-900/90 text-ivory px-4 py-3 rounded-md text-sm placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-gold/60 focus:border-gold transition-all duration-200;
+  }
+
+  .select-field {
+    @apply w-full border border-neutral-700/80 bg-obsidian-900 text-ivory px-4 py-3 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-gold/60 focus:border-gold transition-all duration-200;
+  }
+
+  /* VIP Titles */
+  .section-title {
+    @apply font-serif text-3xl md:text-4xl text-ivory tracking-tight;
+  }
+
+  .gold-gradient-text {
+    @apply bg-gradient-to-r from-gold-300 via-gold to-gold-500 bg-clip-text text-transparent;
+  }
+
+  /* VIP Cards */
+  .card-luxury {
+    @apply relative bg-obsidian-900/80 border border-neutral-800/80 rounded-xl overflow-hidden transition-all duration-500 hover:border-gold/50 hover:shadow-gold-card hover:-translate-y-1.5 backdrop-blur-sm;
+  }
+
+  .glass-panel {
+    @apply bg-obsidian-900/70 border border-white/10 rounded-2xl backdrop-blur-xl shadow-glass;
+  }
+
+  .glass-card {
+    @apply bg-obsidian-800/60 border border-gold/20 rounded-xl backdrop-blur-md transition-all duration-300 hover:border-gold/40 hover:bg-obsidian-800/80;
+  }
+
+  .vip-badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-gold/15 text-gold border border-gold/30;
+  }
+}
+
+/* Card Image Zoom & Shine Hover Effects */
+.card-shine {
+  position: relative;
+  overflow: hidden;
+}
+.card-shine::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(212, 175, 55, 0.15) 50%,
+    rgba(255, 255, 255, 0) 80%
+  );
+  transform: rotate(30deg) translateY(-100%);
+  transition: transform 0.8s ease;
+  pointer-events: none;
+}
+.card-luxury:hover .card-shine::after {
+  transform: rotate(30deg) translateY(100%);
+}
+
+/* VIP SweetAlert2 Overrides */
+.swal2-popup.vip-swal {
+  background: #101014 !important;
+  border: 1px solid rgba(212, 175, 55, 0.45) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85), 0 0 40px rgba(212, 175, 55, 0.25) !important;
+  color: #f4f1ea !important;
+  padding: 24px 28px !important;
+  font-family: var(--font-inter), sans-serif !important;
+}
+
+.swal2-popup.vip-swal .swal2-title {
+  color: #f5d061 !important;
+  font-family: var(--font-playfair), serif !important;
+  font-size: 1.6rem !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em !important;
+}
+
+.swal2-popup.vip-swal .swal2-html-container {
+  color: #d1ccbf !important;
+  font-size: 0.95rem !important;
+  line-height: 1.6 !important;
+}
+
+.swal2-popup.vip-swal .swal2-confirm {
+  background: linear-gradient(135deg, #d4af37 0%, #b38728 100%) !important;
+  color: #09090b !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+  border-radius: 8px !important;
+  padding: 10px 24px !important;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3) !important;
+  border: none !important;
+  transition: all 0.2s ease !important;
+}
+
+.swal2-popup.vip-swal .swal2-confirm:hover {
+  filter: brightness(1.15) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.45) !important;
+}
+
+.swal2-popup.vip-swal .swal2-cancel {
+  background: #1a1a21 !important;
+  color: #e5e5e5 !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  font-weight: 500 !important;
+  font-size: 0.9rem !important;
+  border-radius: 8px !important;
+  padding: 10px 20px !important;
+  transition: all 0.2s ease !important;
+}
+
+.swal2-popup.vip-swal .swal2-cancel:hover {
+  background: #262630 !important;
+  color: #f5d061 !important;
+  border-color: rgba(212, 175, 55, 0.4) !important;
+}
+
+.swal2-popup.vip-swal .swal2-icon.swal2-success {
+  border-color: #d4af37 !important;
+  color: #d4af37 !important;
+}
+
+.swal2-popup.vip-swal .swal2-icon.swal2-success [class^='swal2-success-line'] {
+  background-color: #d4af37 !important;
+}
+
+.swal2-popup.vip-swal .swal2-icon.swal2-success .swal2-success-ring {
+  border: 4px solid rgba(212, 175, 55, 0.3) !important;
+}
