@@ -12,10 +12,15 @@ const schema = z.object({
 export async function POST(req: Request) {
   try {
     const body = await req.json();
+
     const parsed = schema.safeParse(body);
+
     if (!parsed.success) {
       return NextResponse.json(
-        { error: parsed.error.errors[0]?.message || "Invalid input" },
+        {
+          error:
+            parsed.error.errors[0]?.message || "Invalid input",
+        },
         { status: 400 }
       );
     }
@@ -23,29 +28,50 @@ export async function POST(req: Request) {
     const { email, token, password } = parsed.data;
     const normalizedEmail = email.toLowerCase();
 
+    // VerificationToken uses `token` as its primary key
     const record = await prisma.verificationToken.findUnique({
-      where: { identifier_token: { identifier: normalizedEmail, token } },
+      where: { token },
     });
 
-    if (!record || record.expires < new Date()) {
-      return NextResponse.json({ error: "This reset link is invalid or has expired" }, { status: 400 });
+    // Check token existence, expiry, and email/identifier
+    if (
+      !record ||
+      record.identifier.toLowerCase() !== normalizedEmail ||
+      record.expires < new Date()
+    ) {
+      return NextResponse.json(
+        {
+          error: "This reset link is invalid or has expired",
+        },
+        { status: 400 }
+      );
     }
 
+    // Hash the new password
     const passwordHash = await bcrypt.hash(password, 12);
 
+    // Update user's password
     await prisma.user.update({
       where: { email: normalizedEmail },
       data: { passwordHash },
     });
 
-    // Invalidate the token so it can't be reused
+    // Invalidate the token so it cannot be reused
     await prisma.verificationToken.delete({
-      where: { identifier_token: { identifier: normalizedEmail, token } },
+      where: { token },
     });
 
-    return NextResponse.json({ message: "Password updated. You can now log in." });
+    return NextResponse.json({
+      message: "Password updated. You can now log in.",
+    });
   } catch (err) {
     console.error("Reset password error:", err);
-    return NextResponse.json({ error: "Something went wrong" }, { status: 500 });
+
+    return NextResponse.json(
+      {
+        error: "Something went wrong",
+      },
+      { status: 500 }
+    );
   }
 }
