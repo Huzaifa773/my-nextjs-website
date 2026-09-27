@@ -1,3 +1,6 @@
+﻿export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
@@ -82,7 +85,7 @@ export default async function DashboardOrdersPage() {
                 {o.items.map((item) => (
                   <div key={item.id} className="flex justify-between items-center text-xs">
                     <span>
-                      {item.name} <span className="text-neutral-500 font-mono">× {item.quantity}</span>
+                      {item.name} <span className="text-neutral-500 font-mono">Ã— {item.quantity}</span>
                     </span>
                     <span className="text-neutral-400 font-mono">{formatCurrency(Number(item.price))}</span>
                   </div>
@@ -109,4 +112,5 @@ export default async function DashboardOrdersPage() {
     </div>
   );
 }
+
 

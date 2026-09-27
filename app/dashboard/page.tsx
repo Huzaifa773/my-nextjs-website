@@ -1,3 +1,6 @@
+﻿export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
@@ -31,7 +34,7 @@ export default async function DashboardOverviewPage() {
     { label: "Orders Placed", value: ordersCount, icon: ShoppingBag, href: "/dashboard/orders" },
     { label: "Saved in Wishlist", value: wishlistCount, icon: Heart, href: "/wishlist" },
     { label: "Registered Addresses", value: addressesCount, icon: MapPin, href: "/dashboard/addresses" },
-    { label: "VIP Privilège", value: "Active", icon: Award, href: "#" },
+    { label: "VIP PrivilÃ¨ge", value: "Active", icon: Award, href: "#" },
   ];
 
   return (
@@ -152,7 +155,7 @@ export default async function DashboardOverviewPage() {
         <div className="flex items-center justify-between border-b border-neutral-800 pb-3">
           <h2 className="font-serif text-lg font-bold text-gold-300">Patron Dossier</h2>
           <Link href="/dashboard/settings" className="text-xs text-gold hover:underline">
-            Modify Dossier →
+            Modify Dossier â†’
           </Link>
         </div>
 
@@ -174,4 +177,5 @@ export default async function DashboardOverviewPage() {
     </div>
   );
 }
+
 
