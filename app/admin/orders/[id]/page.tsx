@@ -44,7 +44,7 @@ export default async function AdminOrderDetailPage({ params }: { params: { id: s
             </div>
           ))}
           <div className="flex justify-between border-t border-neutral-200 pt-2 font-semibold">
-            <span>Total</span><span>{formatCurrency(order.total)}</span>
+            <span>Total</span><span>{formatCurrency(Number(order.total))}</span>
           </div>
         </div>
       </div>

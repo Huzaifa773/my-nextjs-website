@@ -63,7 +63,7 @@ export default async function OrderConfirmationPage({ params }: { params: { id: 
             </div>
             <div>
               <p className="text-neutral-500 uppercase tracking-wider font-semibold text-[10px]">Total Amount</p>
-              <p className="font-serif font-bold text-base text-gold-200 mt-0.5">{formatCurrency(order.total)}</p>
+              <p className="font-serif font-bold text-base text-gold-200 mt-0.5">{formatCurrency(Number(order.total))}</p>
             </div>
           </div>
 
@@ -158,3 +158,4 @@ export default async function OrderConfirmationPage({ params }: { params: { id: 
     </div>
   );
 }
+

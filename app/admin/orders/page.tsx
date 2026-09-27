@@ -32,7 +32,7 @@ export default async function AdminOrdersPage() {
                 </td>
                 <td className="px-4 py-3">{o.customerName}</td>
                 <td className="px-4 py-3">{new Date(o.createdAt).toLocaleDateString()}</td>
-                <td className="px-4 py-3">{formatCurrency(o.total)}</td>
+                <td className="px-4 py-3">{formatCurrency(Number(o.total))}</td>
                 <td className="px-4 py-3">{o.paymentMethod.replace("_", " ")}</td>
                 <td className="px-4 py-3">{o.paymentStatus}</td>
                 <td className="px-4 py-3">{o.orderStatus}</td>

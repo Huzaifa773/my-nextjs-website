@@ -124,7 +124,7 @@ export default async function ProductDetailPage({ params }: { params: { id: stri
               {hasDiscount && (
                 <>
                   <span className="text-lg text-neutral-500 line-through">
-                    {formatCurrency(product.price)}
+                    {formatCurrency(Number(product.price))}
                   </span>
                   <span className="rounded-full bg-gold/15 border border-gold/40 px-3 py-0.5 text-xs font-bold text-gold">
                     Save {formatCurrency(Number(product.price) - currentPrice)}
@@ -249,3 +249,4 @@ export default async function ProductDetailPage({ params }: { params: { id: stri
     </div>
   );
 }
+

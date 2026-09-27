@@ -72,7 +72,7 @@ export default async function DashboardOrdersPage() {
                     {o.orderStatus}
                   </span>
                   <span className="font-serif text-base font-bold text-ivory">
-                    {formatCurrency(o.total)}
+                    {formatCurrency(Number(o.total))}
                   </span>
                 </div>
               </div>
@@ -84,7 +84,7 @@ export default async function DashboardOrdersPage() {
                     <span>
                       {item.name} <span className="text-neutral-500 font-mono">× {item.quantity}</span>
                     </span>
-                    <span className="text-neutral-400 font-mono">{formatCurrency(item.price)}</span>
+                    <span className="text-neutral-400 font-mono">{formatCurrency(Number(item.price))}</span>
                   </div>
                 ))}
               </div>
@@ -109,3 +109,4 @@ export default async function DashboardOrdersPage() {
     </div>
   );
 }
+

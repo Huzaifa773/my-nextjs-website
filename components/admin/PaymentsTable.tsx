@@ -62,7 +62,7 @@ export function PaymentsTable({ payments }: { payments: PaymentRow[] }) {
               <td className="px-4 py-3 font-medium text-charcoal">{p.order.orderNumber}</td>
               <td className="px-4 py-3">{p.order.customerName}</td>
               <td className="px-4 py-3">{p.method.replace("_", " ")}</td>
-              <td className="px-4 py-3">{formatCurrency(p.amount)}</td>
+              <td className="px-4 py-3">{formatCurrency(Number(p.amount))}</td>
               <td className="px-4 py-3">
                 {p.gatewayReference || "—"}
                 {p.proofImageUrl && (
@@ -102,3 +102,4 @@ export function PaymentsTable({ payments }: { payments: PaymentRow[] }) {
     </div>
   );
 }
+

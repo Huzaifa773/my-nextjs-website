@@ -82,7 +82,7 @@ export function ProductsTable({ products }: { products: AdminProductRow[] }) {
                 <p className="text-[10px] font-mono text-neutral-400">{p.sku}</p>
               </td>
               <td className="px-4 py-3 text-neutral-300">{p.category.name}</td>
-              <td className="px-4 py-3 font-serif font-semibold text-gold-200">{formatCurrency(p.price)}</td>
+              <td className="px-4 py-3 font-serif font-semibold text-gold-200">{formatCurrency(Number(p.price))}</td>
               <td className="px-4 py-3">
                 <span
                   className={`font-mono font-bold ${
@@ -129,3 +129,4 @@ export function ProductsTable({ products }: { products: AdminProductRow[] }) {
     </div>
   );
 }
+

@@ -38,7 +38,7 @@ export default async function AdminDashboardPage() {
   const stats = await getStats();
 
   const cards = [
-    { label: "Verified Revenue", value: formatCurrency(stats.totalSales), icon: CreditCard, trend: "+18.4% this month" },
+    { label: "Verified Revenue", value: formatCurrency(Number(stats.totalSales)), icon: CreditCard, trend: "+18.4% this month" },
     { label: "Total Orders", value: stats.totalOrders, icon: ShoppingCart, trend: "All Time" },
     { label: "Pending Orders", value: stats.pendingOrders, icon: ShoppingCart, alert: stats.pendingOrders > 0 },
     { label: "Active Products", value: stats.totalProducts, icon: Package, trend: "In Catalog" },
@@ -129,7 +129,7 @@ export default async function AdminDashboardPage() {
                       {o.orderStatus}
                     </span>
                     <span className="font-serif text-sm font-bold text-ivory">
-                      {formatCurrency(o.total)}
+                      {formatCurrency(Number(o.total))}
                     </span>
                   </div>
                 </Link>
@@ -183,3 +183,4 @@ export default async function AdminDashboardPage() {
     </div>
   );
 }
+

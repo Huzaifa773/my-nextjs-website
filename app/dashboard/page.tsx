@@ -138,7 +138,7 @@ export default async function DashboardOverviewPage() {
                     {o.orderStatus}
                   </span>
                 <span className="font-serif text-sm md:text-base font-bold text-ivory">
-                  {formatCurrency(o.total)}
+                  {formatCurrency(Number(o.total))}
                 </span>
                 </div>
               </Link>
@@ -174,3 +174,4 @@ export default async function DashboardOverviewPage() {
     </div>
   );
 }
+
