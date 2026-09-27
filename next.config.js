@@ -1,4 +1,5 @@
-/** @type {import('next').NextConfig} */
+{import('next').NextConfig}
+
 const nextConfig = {
   images: {
     remotePatterns: [
@@ -6,8 +7,14 @@ const nextConfig = {
         protocol: "https",
         hostname: "**",
       },
+      {
+        protocol: "http",
+        hostname: "**",
+      },
     ],
+    unoptimized: false,
   },
+
   experimental: {
     serverActions: {
       bodySizeLimit: "5mb",
@@ -16,3 +23,4 @@ const nextConfig = {
 };
 
 module.exports = nextConfig;
+
