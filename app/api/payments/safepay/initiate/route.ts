@@ -1,3 +1,6 @@
+﻿export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
@@ -43,3 +46,4 @@ export async function GET(req: Request) {
     return NextResponse.redirect(`${redirectBase}/order-confirmation/${order.id}`);
   }
 }
+

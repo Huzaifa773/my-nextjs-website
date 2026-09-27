@@ -1,3 +1,6 @@
+﻿export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 import { NextResponse } from "next/server";
 import { getFilteredProducts } from "@/lib/products";
 
@@ -16,3 +19,4 @@ export async function GET(req: Request) {
 
   return NextResponse.json(result);
 }
+

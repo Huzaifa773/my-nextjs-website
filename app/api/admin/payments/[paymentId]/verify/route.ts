@@ -1,3 +1,6 @@
+﻿export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { z } from "zod";
@@ -7,7 +10,7 @@ import { prisma } from "@/lib/prisma";
 const schema = z.object({ decision: z.enum(["APPROVE", "REJECT"]) });
 
 // Admin-only manual verification for Bank Transfer (or a stuck gateway
-// payment) — this is the ONLY place a payment can be marked PAID without a
+// payment) â€” this is the ONLY place a payment can be marked PAID without a
 // verified gateway signature, and it requires an authenticated admin.
 export async function POST(req: Request, { params }: { params: { paymentId: string } }) {
   const session = await getServerSession(authOptions);
@@ -42,3 +45,4 @@ export async function POST(req: Request, { params }: { params: { paymentId: stri
 
   return NextResponse.json({ payment: updatedPayment });
 }
+

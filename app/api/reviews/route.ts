@@ -1,3 +1,6 @@
+﻿export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { z } from "zod";
@@ -40,3 +43,4 @@ export async function POST(req: Request) {
 
   return NextResponse.json({ review }, { status: 201 });
 }
+

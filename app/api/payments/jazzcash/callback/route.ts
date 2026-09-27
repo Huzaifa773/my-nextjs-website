@@ -1,3 +1,6 @@
+﻿export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { verifyJazzCashCallback } from "@/lib/payments/jazzcash";
@@ -28,7 +31,7 @@ export async function POST(req: Request) {
   const payment = order.payments[0];
 
   if (!isValid) {
-    // The signature didn't match — never trust this response.
+    // The signature didn't match â€” never trust this response.
     if (payment) {
       await prisma.payment.update({
         where: { id: payment.id },
@@ -65,3 +68,4 @@ export async function POST(req: Request) {
 
   return NextResponse.redirect(`${redirectBase}/order-confirmation/${order.id}`);
 }
+

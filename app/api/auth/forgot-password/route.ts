@@ -1,3 +1,6 @@
+﻿export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 import { NextResponse } from "next/server";
 import crypto from "crypto";
 import { z } from "zod";
@@ -22,7 +25,7 @@ export async function POST(req: Request) {
     const user = await prisma.user.findUnique({ where: { email } });
 
     // Always return a generic success message, even if the user doesn't
-    // exist — this prevents attackers from discovering which emails are
+    // exist â€” this prevents attackers from discovering which emails are
     // registered (user enumeration).
     if (!user) {
       return NextResponse.json({
@@ -50,3 +53,4 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Something went wrong" }, { status: 500 });
   }
 }
+

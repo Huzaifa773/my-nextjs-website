@@ -1,3 +1,6 @@
+﻿export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { z } from "zod";
@@ -40,3 +43,4 @@ export async function PATCH(req: Request, { params }: { params: { id: string } }
 
   return NextResponse.json({ order });
 }
+

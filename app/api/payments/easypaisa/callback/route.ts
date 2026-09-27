@@ -1,3 +1,6 @@
+﻿export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { verifyEasypaisaCallback } from "@/lib/payments/easypaisa";
@@ -32,7 +35,7 @@ export async function POST(req: Request) {
     return NextResponse.redirect(`${redirectBase}/order-confirmation/${order.id}`);
   }
 
-  // Easypaisa typically returns a "status"/"responseCode" style field —
+  // Easypaisa typically returns a "status"/"responseCode" style field â€”
   // confirm the exact success indicator name against your onboarding docs.
   const success = fields.status === "0000" || fields.responseCode === "0000";
 
@@ -56,3 +59,4 @@ export async function POST(req: Request) {
 
   return NextResponse.redirect(`${redirectBase}/order-confirmation/${order.id}`);
 }
+

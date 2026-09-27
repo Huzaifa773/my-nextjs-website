@@ -1,3 +1,6 @@
+﻿export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import { getServerSession } from "next-auth";
@@ -49,3 +52,4 @@ export async function PATCH(req: Request) {
 
   return NextResponse.json({ user: updated });
 }
+

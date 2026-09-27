@@ -1,3 +1,6 @@
+﻿export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { z } from "zod";
@@ -89,3 +92,4 @@ export async function DELETE(_req: Request, { params }: { params: { id: string }
   await prisma.product.delete({ where: { id: params.id } });
   return NextResponse.json({ success: true });
 }
+

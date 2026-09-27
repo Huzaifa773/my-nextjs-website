@@ -1,10 +1,13 @@
+﻿export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { verifySafepayWebhookSignature } from "@/lib/payments/safepay";
 
 // Safepay calls this URL directly from their servers (not the customer's
 // browser), which is why webhook signature verification is the only thing
-// that can be trusted here — never mark an order paid based on a browser
+// that can be trusted here â€” never mark an order paid based on a browser
 // redirect alone.
 export async function POST(req: Request) {
   const rawBody = await req.text();
@@ -53,3 +56,4 @@ export async function POST(req: Request) {
 
   return NextResponse.json({ received: true });
 }
+

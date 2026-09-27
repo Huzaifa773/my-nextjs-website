@@ -1,3 +1,6 @@
+﻿export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { z } from "zod";
@@ -134,8 +137,9 @@ export async function POST(req: Request) {
     return created;
   });
 
-  // COD requires no online verification step — the "payment" simply means
+  // COD requires no online verification step â€” the "payment" simply means
   // "collect cash on delivery"; paymentStatus stays PENDING until the rider
   // actually collects the cash, which the admin marks manually.
   return NextResponse.json({ order }, { status: 201 });
 }
+

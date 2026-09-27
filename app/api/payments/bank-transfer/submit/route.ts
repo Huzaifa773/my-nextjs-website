@@ -1,3 +1,6 @@
+﻿export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { z } from "zod";
@@ -12,7 +15,7 @@ const schema = z.object({
 
 // The customer submits their bank transfer reference (and optionally a
 // receipt image URL) here. This ONLY moves the payment into
-// AWAITING_VERIFICATION — it never marks the order as paid. An admin must
+// AWAITING_VERIFICATION â€” it never marks the order as paid. An admin must
 // manually review and approve it via /api/admin/payments/[paymentId]/verify.
 export async function POST(req: Request) {
   const session = await getServerSession(authOptions);
@@ -49,3 +52,4 @@ export async function POST(req: Request) {
 
   return NextResponse.json({ payment: updated });
 }
+
