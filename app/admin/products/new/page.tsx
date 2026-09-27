@@ -1,3 +1,6 @@
+﻿export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 import { prisma } from "@/lib/prisma";
 import { ProductForm } from "@/components/admin/ProductForm";
 
@@ -11,3 +14,5 @@ export default async function NewProductPage() {
     </div>
   );
 }
+
+

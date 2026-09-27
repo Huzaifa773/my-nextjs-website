@@ -1,3 +1,6 @@
+﻿export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 import { prisma } from "@/lib/prisma";
 import { PaymentsTable } from "@/components/admin/PaymentsTable";
 
@@ -23,9 +26,11 @@ export default async function AdminPaymentsPage() {
     <div className="space-y-6">
       <h1 className="font-serif text-3xl text-charcoal">Payments</h1>
       <p className="text-sm text-neutral-500">
-        Bank transfer payments require manual review — approve only after confirming the funds actually arrived.
+        Bank transfer payments require manual review â€” approve only after confirming the funds actually arrived.
       </p>
       <PaymentsTable payments={rows} />
     </div>
   );
 }
+
+

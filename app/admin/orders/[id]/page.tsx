@@ -1,3 +1,6 @@
+﻿export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { formatCurrency } from "@/lib/utils";
@@ -39,7 +42,7 @@ export default async function AdminOrderDetailPage({ params }: { params: { id: s
         <div className="space-y-2 text-sm">
           {order.items.map((i) => (
             <div key={i.id} className="flex justify-between">
-              <span>{i.name} × {i.quantity}</span>
+              <span>{i.name} Ã— {i.quantity}</span>
               <span>{formatCurrency(Number(i.price) * i.quantity)}</span>
             </div>
           ))}
@@ -60,7 +63,7 @@ export default async function AdminOrderDetailPage({ params }: { params: { id: s
             {p.gatewayReference && <p className="text-xs text-neutral-500">Ref: {p.gatewayReference}</p>}
             {p.proofImageUrl && (
               <a href={p.proofImageUrl} target="_blank" rel="noreferrer" className="text-xs text-gold hover:underline">
-                View proof →
+                View proof â†’
               </a>
             )}
           </div>
@@ -69,3 +72,5 @@ export default async function AdminOrderDetailPage({ params }: { params: { id: s
     </div>
   );
 }
+
+

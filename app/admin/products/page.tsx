@@ -1,3 +1,6 @@
+﻿export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 import Link from "next/link";
 import { Plus } from "lucide-react";
 import { prisma } from "@/lib/prisma";
@@ -33,3 +36,5 @@ export default async function AdminProductsPage() {
     </div>
   );
 }
+
+
