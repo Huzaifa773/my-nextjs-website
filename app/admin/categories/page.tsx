@@ -1,3 +1,7 @@
+export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
+
 import { prisma } from "@/lib/prisma";
 import { CategoryManager } from "@/components/admin/CategoryManager";
 
