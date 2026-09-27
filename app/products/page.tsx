@@ -1,3 +1,6 @@
+﻿export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
@@ -124,3 +127,4 @@ export default async function ProductsPage({
     </div>
   );
 }
+

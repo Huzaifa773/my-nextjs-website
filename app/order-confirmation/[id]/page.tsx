@@ -1,3 +1,6 @@
+﻿export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
 import { getServerSession } from "next-auth";
@@ -74,7 +77,7 @@ export default async function OrderConfirmationPage({ params }: { params: { id: 
               {order.items.map((item) => (
                 <div key={item.id} className="flex justify-between items-center p-3 rounded-xl bg-obsidian-800/60 border border-neutral-800">
                   <span className="text-neutral-200">
-                    {item.name} <span className="text-neutral-500 font-mono">× {item.quantity}</span>
+                    {item.name} <span className="text-neutral-500 font-mono">Ã— {item.quantity}</span>
                   </span>
                   <span className="font-mono text-gold font-medium">
                     {formatCurrency(Number(item.price) * item.quantity)}
@@ -158,4 +161,5 @@ export default async function OrderConfirmationPage({ params }: { params: { id: 
     </div>
   );
 }
+
 

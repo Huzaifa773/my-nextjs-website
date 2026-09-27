@@ -1,3 +1,6 @@
+﻿export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 import Link from "next/link";
 import Image from "next/image";
 import { getServerSession } from "next-auth";
@@ -88,7 +91,7 @@ export default async function HomePage() {
               </div>
               <h3 className="font-serif text-lg font-semibold text-gold-300">Top Notes &bull; The Prelude</h3>
               <p className="text-xs text-neutral-400 leading-relaxed">
-                Calabrian Bergamot, Pink Peppercorn, and Bitter Orange that awaken the senses for the first 15–30 minutes.
+                Calabrian Bergamot, Pink Peppercorn, and Bitter Orange that awaken the senses for the first 15â€“30 minutes.
               </p>
               <div className="text-[11px] text-gold/80 font-medium tracking-wider uppercase pt-1">
                 Immediate Impression
@@ -101,7 +104,7 @@ export default async function HomePage() {
               </div>
               <h3 className="font-serif text-lg font-semibold text-gold-200">Heart Notes &bull; The Soul</h3>
               <p className="text-xs text-neutral-300 leading-relaxed">
-                Damascus Rose petals, French Lavender, and Royal Jasmine revealing the true character for 4–6 hours.
+                Damascus Rose petals, French Lavender, and Royal Jasmine revealing the true character for 4â€“6 hours.
               </p>
               <div className="text-[11px] text-gold font-medium tracking-wider uppercase pt-1">
                 The Core Signature
@@ -272,7 +275,7 @@ export default async function HomePage() {
             <div className="absolute inset-0 bg-gradient-to-t from-obsidian-950/80 via-transparent to-transparent" />
             <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl bg-obsidian-900/80 backdrop-blur-md border border-gold/30">
               <p className="font-serif text-base text-gold-300">"A fragrance is the most intense form of memory."</p>
-              <p className="text-xs text-neutral-400 mt-1">— Master Perfumer, Maison Charcoal</p>
+              <p className="text-xs text-neutral-400 mt-1">â€” Master Perfumer, Maison Charcoal</p>
             </div>
           </div>
 
@@ -339,3 +342,4 @@ export default async function HomePage() {
     </div>
   );
 }
+

@@ -1,3 +1,6 @@
+﻿export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getServerSession } from "next-auth";
@@ -150,7 +153,7 @@ export default async function ProductDetailPage({ params }: { params: { id: stri
               </div>
               <div className="p-3 rounded-xl bg-obsidian-900 border border-neutral-800">
                 <p className="text-neutral-500 font-semibold uppercase tracking-wider text-[10px]">Projection & Sillage</p>
-                <p className="font-medium text-gold mt-0.5">Radiant & Intimate (12–18 Hours)</p>
+                <p className="font-medium text-gold mt-0.5">Radiant & Intimate (12â€“18 Hours)</p>
               </div>
               <div className="p-3 rounded-xl bg-obsidian-900 border border-neutral-800">
                 <p className="text-neutral-500 font-semibold uppercase tracking-wider text-[10px]">Best Suited For</p>
@@ -249,4 +252,5 @@ export default async function ProductDetailPage({ params }: { params: { id: stri
     </div>
   );
 }
+
 
